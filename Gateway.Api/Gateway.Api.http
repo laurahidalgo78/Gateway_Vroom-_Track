@@ -1,0 +1,38 @@
+@Gateway.Api_HostAddress = http://localhost:5242
+
+### 1. Validar Conexión y Consumo con SuiteCRM REST Gateway
+POST {{Gateway.Api_HostAddress}}/api/v1/suitecrm/validate-connection
+Content-Type: application/json
+
+### 2. Probar Login Directo a SuiteCRM
+POST {{Gateway.Api_HostAddress}}/api/v1/suitecrm/execute
+Content-Type: application/json
+
+{
+  "method": "login",
+  "restData": {
+    "user_auth": {
+      "user_name": "admin",
+      "password": "5aa1b8bbc427d07af4f3b440adaf1990",
+      "version": "1"
+      "version": "1"
+    },
+    "application_name": "VroomService Gateway",
+    "name_value_list": []
+  }
+}
+
+### 3. Validar y Consultar Datos del Módulo de Clientes (Contacts)
+GET {{Gateway.Api_HostAddress}}/api/v1/suitecrm/modules/Contacts?maxResults=5
+
+### 4. Validar y Consultar Datos del Módulo de Vehículos (vr_Vehiculos)
+GET {{Gateway.Api_HostAddress}}/api/v1/suitecrm/modules/vr_Vehiculos?maxResults=5
+
+### 5. Validar y Consultar Órdenes de Servicio (vr_Ordenes_Servicio)
+GET {{Gateway.Api_HostAddress}}/api/v1/suitecrm/modules/vr_Ordenes_Servicio?maxResults=5
+
+### 6. Validar y Consultar Centros de Servicio (vr_Centros_Servicio)
+GET {{Gateway.Api_HostAddress}}/api/v1/suitecrm/modules/vr_Centros_Servicio?maxResults=5
+
+### 7. Validar y Consultar Productos y Repuestos (AOS_Products)
+GET {{Gateway.Api_HostAddress}}/api/v1/suitecrm/modules/AOS_Products?maxResults=5
